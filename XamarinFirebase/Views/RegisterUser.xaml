@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinFirebase.Views.RegisterUser">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label Text="Register new User" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"/>
+            <Entry Placeholder="Name" x:Name="TxtName"/>
+            <Entry Placeholder="Email" x:Name="TxtEmail"/>
+            <Entry Placeholder="Password" IsPassword="True" x:Name="TxtPassword"/>
+            <Entry Placeholder="Re-Type Password" IsPassword="True" x:Name="TxtConfirmPass"/>
+            <Button Text="Register" x:Name="ButtonRegister" Clicked="ButtonRegister_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

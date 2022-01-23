@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinFirebase.Views.Student.StudentListPage"
+    Title="Student List">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     x:Name="AddToolBarItem"
+                     Clicked="AddToolBarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Search"
+                       x:Name="TxtSearch"
+                       TextChanged="TxtSearch_TextChanged"
+                       SearchButtonPressed="TxtSearch_SearchButtonPressed"/>
+            <ListView x:Name="StudentListView"
+                  HasUnevenRows="True"
+                  ItemTapped="StudentListView_ItemTapped"
+                      IsRefreshing="True"
+                      IsPullToRefreshEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!--<ViewCell.ContextActions>
+                            <MenuItem Text="Edit" x:Name="EditMenuItem" CommandParameter="{Binding Id}" Clicked="EditMenuItem_Clicked"></MenuItem>
+                            <MenuItem Text="Delete" x:Name="DeleteMenuItem" CommandParameter="{Binding Id}" Clicked="DeleteMenuItem_Clicked"></MenuItem>
+                        </ViewCell.ContextActions>-->
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItem Text="Edit" BackgroundColor="Red" x:Name="EditSwipeItem" CommandParameter="{Binding Id}" Invoked="EditSwipeItem_Invoked"></SwipeItem>
+                                <SwipeItem Text="Delete" BackgroundColor="Green" x:Name="DeleteSwipeItem" CommandParameter="{Binding Id}" Invoked="DeleteMenuItem_Clicked"></SwipeItem>
+                            </SwipeView.LeftItems>
+                        
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Frame Padding="0" HeightRequest="60" WidthRequest="60" BackgroundColor="White" CornerRadius="100" BorderColor="Teal" IsClippedToBounds="True">
+                                <Frame.Content>
+                                    <Image Source="{Binding Image}" Aspect="AspectFit"/>
+                                </Frame.Content>
+                            </Frame>
+                            
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name}" FontSize="Medium"/>
+                                <Label Text="{Binding Email}" FontSize="Small"/>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                    <Label Text="Edit">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="EditTap" Tapped="EditTap_Tapped" CommandParameter="{Binding Id}"/>
+                                        </Label.GestureRecognizers>
+                                        </Label>
+                                    <Label Text="Delete">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="DeleteTap" Tapped="DeleteTap_Tapped" CommandParameter="{Binding Id}"/>
+                                        </Label.GestureRecognizers>
+                                        </Label>
+                                </StackLayout>
+                        </StackLayout>
+                            </SwipeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

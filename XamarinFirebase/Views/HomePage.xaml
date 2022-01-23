@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinFirebase.Views.HomePage">
+    <ContentPage.Content>
+        <StackLayout Padding="16">
+            <Label Text="Home Page" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"/>
+            <Label Text="" x:Name="LblUser"/>
+            <Button Text="Student List" x:Name="BtnStudentList" Clicked="BtnStudentList_Clicked"></Button>
+            <Button Text="Change Password" x:Name="BtnChangePassword" Clicked="BtnChangePassword_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
